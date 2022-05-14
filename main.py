@@ -44,7 +44,8 @@ for i in sys.argv:
         print("saving password")
         save = True
     elif i.startswith("-l"):
-        length = int(i[2:])
+        length = int(i[2:] if len(i[2:]) > 0 else "15")
+        
 
     
 passwd = generate_password(length)
