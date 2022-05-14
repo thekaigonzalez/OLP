@@ -45,7 +45,9 @@ for i in sys.argv:
         save = True
     elif i.startswith("-l"):
         length = int(i[2:] if len(i[2:]) > 0 else "15")
-        
+    elif (i == '-h' or i == '--help'):
+        print("usage: " + sys.argv[0] + " [-l{AMOUNT} ...] [-s --save ...]\n\nOLP will generate a string of random characters for you.\n\nCharacter Arguments:\n\t-l     Length of the string. Default: 15\n\t-s     Saves the generated string to a ~/.olp-passwords file.\n\nWord Arguments:\n\t--save     Similar to: -s\n\t--help     Similar to: -h")
+        exit(0)
 
     
 passwd = generate_password(length)
